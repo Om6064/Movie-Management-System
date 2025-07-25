@@ -9,17 +9,15 @@ const Form = () => {
         description: "",
     });
 
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
     const [error, setError] = useState({});
+    let url = "http://localhost:5000/movies"
+    const fetchData = async () => {
+        let res = await axios.get(url)
+        console.log(res);
+    }
 
     useEffect(() => {
-        let url = "http://localhost:5000/movies"
-
-        const fetchData = async () => {
-            let res = await axios.get(url)
-            console.log(res);
-        }
-
         fetchData()
     }, [])
 
@@ -39,11 +37,17 @@ const Form = () => {
         setError(tempErrors);
 
         if (Object.keys(tempErrors).length === 0) {
-            const newMovie = { ...input, id: Date.now() };
-            setMovies([...movies, newMovie]);
+            // const newMovie = { ...input, id: Date.now() };
+            // setMovies([...movies, newMovie]);
             setInput({ title: "", img_url: "", genre: "", description: "" });
+            handleAdd()
         }
     };
+
+    const handleAdd = async() => {
+        await axios.post(`${url}`,input)
+        fetchData()
+    }
 
     return (
         <div className="h-screen flex items-center justify-center">
@@ -122,17 +126,6 @@ const Form = () => {
                     </button>
                 </form>
 
-
-                <div className="mt-6">
-                    <h2 className="text-lg font-semibold">Movies List:</h2>
-                    <ul>
-                        {movies.map((movie) => (
-                            <li key={movie.id} className="mt-2">
-                                <strong>{movie.title}</strong> - {movie.genre}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
             </div>
         </div>
     );
