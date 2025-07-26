@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import BlurText from "./BlurText";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
+
 
 const Form = () => {
     const [input, setInput] = useState({
@@ -10,6 +12,7 @@ const Form = () => {
         genre: "",
         description: "",
     });
+    const navigate  = useNavigate()
 
     // const [movies, setMovies] = useState([]);
     const [error, setError] = useState({});
@@ -43,6 +46,7 @@ const Form = () => {
             // setMovies([...movies, newMovie]);
             setInput({ title: "", img_url: "", genre: "", description: "" });
             handleAdd()
+            navigate("/dashboard")
         }
     };
 

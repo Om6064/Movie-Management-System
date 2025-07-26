@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BlurText from './BlurText'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const DashBoard = () => {
+    const [movie, setMovie] = useState([])
+
+    let url = "http://localhost:5000/movies"
+    const fetchData = async () => {
+        let res = await axios.get(url)
+        setMovie(res.data)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
     return (
         <div className="bg-white text-gray-800">
             {/* Hero Section */}
@@ -46,37 +58,41 @@ const DashBoard = () => {
                                         Product name
                                     </th>
                                     <th scope="col" className="px-6 py-3">
-                                        Color
+                                        Image
                                     </th>
                                     <th scope="col" className="px-6 py-3">
-                                        Category
+                                        Genere
                                     </th>
                                     <th scope="col" className="px-6 py-3">
-                                        Price
+                                        Action
                                     </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        <span className="sr-only">Edit</span>
-                                    </th>
+                            
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="bg-black border-b border-gray-200 hover:bg-orange-500 text-white">
-                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
-                                        Apple MacBook Pro 17"
-                                    </th>
-                                    <td className="px-6 py-4">
-                                        Silver
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        Laptop
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
+                                {
+                                    movie.map((movie,index) => {
+                                        return <tr className={`${index % 2 === 0
+                                                ? 'bg-orange-500 text-white'
+                                                : 'bg-black text-white'
+                                            } border-b border-gray-200 hover:opacity-90`}>
+                                            <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
+                                                {movie.title}
+                                            </th>
+                                            <td className="px-6 py-4">
+                                                {movie.img_url}
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                {movie.genre}
+                                            </td>
+                                            <td className="px-6 py-4 flex gap-3">
+                                                <a href="#" className="font-medium text-white-600 dark:text-white-500 hover:underline">Edit</a>
+                                                <a href="#" className="font-medium text-white-600 dark:text-white-500 hover:underline">Delete</a>
+                                            </td> 
+                                        </tr>
+                                    })
+                                }
                             </tbody>
                         </table>
 

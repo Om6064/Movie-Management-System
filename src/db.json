@@ -26,6 +26,34 @@
       "img_url": "http://localhost:5173/",
       "genre": "frwrgtdfhf",
       "description": "dgfjhmhj,h"
+    },
+    {
+      "id": "4e5b",
+      "title": "erttert",
+      "img_url": "http://localhost:5173/",
+      "genre": "fgdfg",
+      "description": "fhdgjfghjgh"
+    },
+    {
+      "id": "aede",
+      "title": "dgdfgdfg",
+      "img_url": "http://localhost:5173/",
+      "genre": "fgdfgfh",
+      "description": "dgfgjhfj"
+    },
+    {
+      "id": "8266",
+      "title": "frsdfdfdfd",
+      "img_url": "http://localhost:5173/",
+      "genre": "dsfsdf",
+      "description": "dgdfghdfg"
+    },
+    {
+      "id": "49c0",
+      "title": "pa",
+      "img_url": "http://localhost:5173/",
+      "genre": "comedy",
+      "description": "it is a messageable movie"
     }
   ],
   "islogin": ""
