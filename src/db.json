@@ -56,5 +56,17 @@
       "description": "it is a messageable movie"
     }
   ],
-  "islogin": ""
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "admin@123"
+    }
+  ],
+  "islogin": [
+    {
+      "status": true,
+      "id": "1"
+    }
+  ]
 }
