@@ -7,6 +7,7 @@ import 'remixicon/fonts/remixicon.css'
 import Login from "./components/Login"
 import { ToastContainer } from "react-toastify"
 import DashBoard from "./components/DashBoard"
+import EditMovie from "./components/EditMovie"
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/contect" element={<Contact />} />
                 <Route path="/dashboard" element={<DashBoard />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/editmovie" element={<EditMovie />} />
             </Routes>
             <ToastContainer/>
         </BrowserRouter>

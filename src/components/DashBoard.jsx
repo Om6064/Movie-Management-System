@@ -16,6 +16,11 @@ const DashBoard = () => {
     useEffect(() => {
         fetchData()
     }, [])
+
+    const handleDelete = async(id) => {
+       await axios.delete(`http://localhost:5000/movies/${id}`)
+        fetchData()
+    }
     return (
         <div className="bg-white text-gray-800">
             {/* Hero Section */}
@@ -87,8 +92,10 @@ const DashBoard = () => {
                                                 {movie.genre}
                                             </td>
                                             <td className="px-6 py-4 flex gap-3">
-                                                <a href="#" className="font-medium text-white-600 dark:text-white-500 hover:underline">Edit</a>
-                                                <a href="#" className="font-medium text-white-600 dark:text-white-500 hover:underline">Delete</a>
+                                                <Link to={"/editmovie"} className="font-medium text-white-600 dark:text-white-500 hover:underline">Edit</Link>
+                                                <button onClick={() => {
+                                                    handleDelete(movie.id)
+                                                }} className="font-medium text-white-600 dark:text-white-500 hover:underline">Delete</button>
                                             </td> 
                                         </tr>
                                     })

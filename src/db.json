@@ -1,19 +1,6 @@
 {
   "movies": [
     {
-      "title": "Saiyara",
-      "url": "http://localhost:5173/",
-      "des": "dyryjtyjjjhukgh",
-      "id": "f05b"
-    },
-    {
-      "id": "3f04",
-      "title": "sdfsgdg",
-      "img_url": "http://localhost:5173/",
-      "genre": "sdghfy",
-      "description": "fgdhjtjlkhul,hu"
-    },
-    {
       "id": "92f1",
       "title": "dghfj",
       "img_url": "http://localhost:5173/",
@@ -47,13 +34,6 @@
       "img_url": "http://localhost:5173/",
       "genre": "dsfsdf",
       "description": "dgdfghdfg"
-    },
-    {
-      "id": "49c0",
-      "title": "pa",
-      "img_url": "http://localhost:5173/",
-      "genre": "comedy",
-      "description": "it is a messageable movie"
     }
   ],
   "users": [
