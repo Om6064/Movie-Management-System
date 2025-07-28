@@ -1,35 +1,34 @@
-import { Editor } from '@toast-ui/react-editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import React, { useRef, useEffect } from 'react';
+// MyEditor.js
+import React from "react";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 
-function MyEditor({ value, onChange }) {
-    const editorRef = useRef();
+const MyEditor = ({ value, onChange }) => {
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      ["bold", "italic", "underline"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      ["clean"]
+    ]
+  };
 
-    useEffect(() => {
-        if (editorRef.current && value) {
-            editorRef.current.getInstance().setMarkdown(value);
-        }
-    }, [value]);
+  const formats = [
+    "header", "bold", "italic", "underline",
+    "list", "bullet", "link", "image"
+  ];
 
-    const handleEditorChange = () => {
-        const instance = editorRef.current.getInstance();
-        const markdown = instance.getMarkdown();
-        onChange(markdown);
-    };
-
-    return (
-        <div>
-            <Editor
-                ref={editorRef}
-                initialValue={value || ""}
-                previewStyle="vertical"
-                height="400px"
-                initialEditType="wysiwyg"
-                useCommandShortcut={true}
-                onChange={handleEditorChange}
-            />
-        </div>
-    );
-}
+  return (
+    <ReactQuill
+      value={value}
+      onChange={onChange}
+      theme="snow"
+      modules={modules}
+      formats={formats}
+      placeholder="Write a description..."
+    />
+  );
+};
 
 export default MyEditor;

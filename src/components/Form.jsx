@@ -46,10 +46,10 @@ const Form = () => {
     setError(tempErrors);
 
     if (Object.keys(tempErrors).length === 0) {
-        await axios.post(url, input);
-        setInput({ title: "", img_url: "", genre: "", description: "" });
-        fetchData();
-        navigate("/dashboard");
+      await axios.post(url, input);
+      setInput({ title: "", img_url: "", genre: "", description: "" });
+      fetchData();
+      navigate("/dashboard");
     }
   };
 
