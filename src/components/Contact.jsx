@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const Contact = () => {
     return (
         <div className="bg-white text-gray-800">
-            {/* Hero Section */}
+     
             <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
                 <p>Home <i class="ri-arrow-drop-right-line"></i> contact</p>
                 <BlurText
@@ -19,9 +19,9 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-black/50 z-10"></div>
             </div>
 
-            {/* Contact Section */}
+      
             <section className="container mx-auto px-6 py-20 text-center">
-                {/* Contact Info */}
+            
                 <div className="space-y-8">
                     <div>
                         <p className="text-2xl text-orange-500"><i class="ri-movie-2-line"></i></p>
@@ -33,13 +33,13 @@ const Contact = () => {
                     </div>
                 </div>
 
-                {/* Contact Form */}
+           
                 <div className="my-24">
                     <ContactForm />
                 </div>
             </section>
 
-            {/* Google Map */}
+        
             <div className="h-96 w-full">
                 <iframe
                     title="Google Map"

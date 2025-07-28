@@ -27,6 +27,7 @@ const MyEditor = ({ value, onChange }) => {
       modules={modules}
       formats={formats}
       placeholder="Write a description..."
+       className="bg-gray-100"
     />
   );
 };

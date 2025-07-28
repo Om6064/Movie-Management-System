@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import BlurText from "./BlurText";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
-import MyEditor from "./MyEditor"; // import your Toast UI Editor wrapper
+import MyEditor from "./MyEditor";
 
 const Form = () => {
   const [input, setInput] = useState({
@@ -55,7 +55,7 @@ const Form = () => {
 
   return (
     <div className="bg-white text-gray-800">
-      {/* Header */}
+     
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
         <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dahboard <i className="ri-arrow-drop-right-line"></i> Add Movie</p>
         <BlurText
@@ -69,7 +69,7 @@ const Form = () => {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
-      {/* Form Section */}
+    
       <section className="container mx-auto px-6 py-20 text-center">
         <div className="space-y-8">
           <div>
@@ -84,7 +84,7 @@ const Form = () => {
         <div className="my-24">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
-            {/* Title and Image URL */}
+        
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <input
@@ -111,22 +111,29 @@ const Form = () => {
               </div>
             </div>
 
-            {/* Genre */}
             <div className="flex flex-col">
-              <input
-                type="text"
+              <select
                 id="genre"
-                placeholder="e.g., Comedy, Action"
-                className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                onChange={handleChange}
                 value={input.genre}
-              />
+                onChange={handleChange}
+                className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              >
+                <option value="">Select Genre</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Romance">Romance</option>
+                <option value="Animation">Animation</option>
+                <option value="Documentary">Documentary</option>
+              </select>
               <p className="text-sm h-5 text-red-500">{error.genre}</p>
             </div>
 
-            {/* Description using Toast UI Editor */}
+         
             <div className="flex flex-col text-left">
-              <label className="mb-2 font-semibold">Description</label>
               <MyEditor
                 value={input.description}
                 onChange={(markdown) =>
@@ -136,7 +143,7 @@ const Form = () => {
               <p className="text-sm h-5 text-red-500">{error.description}</p>
             </div>
 
-            {/* Submit Button */}
+     
             <button
               type="submit"
               className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"

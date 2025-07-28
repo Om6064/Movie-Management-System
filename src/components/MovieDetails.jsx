@@ -19,7 +19,7 @@ const MovieDetails = () => {
 
   return (
     <div className="bg-white text-gray-800">
-      {/* Hero Section */}
+     
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
         <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dashboard <i className="ri-arrow-drop-right-line"></i> Movie Detail</p>
         <BlurText
@@ -33,7 +33,7 @@ const MovieDetails = () => {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
-      {/* Movie Details Section */}
+     
       <section className="container mx-auto px-6 py-20 text-center">
         <div className="space-y-8">
           <div>
@@ -45,7 +45,7 @@ const MovieDetails = () => {
           </div>
         </div>
 
-        {/* Movie Card */}
+      
         {
           movie &&
           <div className="my-20 bg-gray-100 shadow-lg rounded-lg p-10 text-left max-w-4xl mx-auto">

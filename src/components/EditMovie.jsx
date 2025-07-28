@@ -122,7 +122,6 @@ const EditMovie = () => {
 
             {/* Description using Toast UI Editor */}
             <div className="flex flex-col text-left">
-              <label className="mb-2 font-semibold">Description</label>
               <MyEditor
                 value={input.description}
                 onChange={(markdown) =>

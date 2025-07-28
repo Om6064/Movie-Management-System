@@ -4,9 +4,9 @@ const Footer = () => {
     return (
         <footer className="bg-black text-gray-400 pt-12">
             <div className="container mx-auto px-6 md:px-12">
-                {/* Top bar */}
+              
                 <div className="flex flex-col md:flex-row justify-between border-b border-gray-700 pb-10">
-                    {/* Logo & CTA */}
+                   
                     <div className="mb-10 md:mb-0 md:w-1/3">
                         <div className="my-10">
                             <Link to={"/"}><img src="/logo-white.png" alt="Logo" className="h-10" /></Link>
@@ -20,9 +20,9 @@ const Footer = () => {
                         </button>
                     </div>
 
-                    {/* Footer Links */}
+                   
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm md:w-2/3">
-                        {/* Movies */}
+                        
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Movies
@@ -36,7 +36,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Links */}
+                       
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Links
@@ -50,7 +50,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Newsletter */}
+                        
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Newsletter
@@ -72,7 +72,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Bottom bar */}
+                
                 <div className="flex flex-col md:flex-row justify-between items-center py-6 border-t border-gray-700 mt-10">
                     <p className="text-sm text-gray-500">© Copyright 2023 by Ovatheme.com</p>
                     <div className="flex space-x-4 mt-4 md:mt-0">

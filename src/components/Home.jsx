@@ -46,18 +46,16 @@ const Home = () => {
             {slideData.map((slide, index) => (
                 <SwiperSlide key={index}>
                     <div className="h-screen w-full text-white font-sans relative">
-                        {/* Background Image */}
                         <div
                             className="absolute inset-0 z-0 bg-cover bg-center"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         ></div>
 
-                        {/* Black Overlay */}
+                        
                         <div className="absolute inset-0 bg-black/60 z-10"></div>
 
-                        {/* Content */}
                         <div className="relative z-20 container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between h-full">
-                            {/* Left Section */}
+                            
                             <div className=" text-left space-y-6">
                                 <p className="text-orange-400 font-bold text-xl">Action Movie</p>
                                 <h1 className="text-5xl sm:text-6xl font-bold leading-tight">
@@ -81,7 +79,7 @@ const Home = () => {
 
                             </div>
 
-                            {/* Right Section */}
+                            
                             <div className="mt-10 lg:mt-0 flex flex-col items-end">
                                 <div className="text-right mb-12">
                                     <p className="text-sm text-gray-300">In theater</p>
@@ -90,18 +88,18 @@ const Home = () => {
                                     </p>
                                 </div>
 
-                                {/* Trailer Thumbnails - No .map() */}
+                                
                                 <div className="bg-black/50 p-4 rounded-lg">
                                     <p className="mb-2 text-sm text-gray-400">Trailers</p>
                                     <div className="flex gap-4">
-                                        {/* Thumbnail 1 */}
+                                        
                                         {slide.image && (
                                             <div className="border-2 border-orange-500 rounded overflow-hidden relative group">
                                                 <img
                                                     src="/banner-02.jpg"
                                                     alt="Trailer 1"
                                                     className="w-28 h-20 object-cover"
-                                                    onError={(e) => (e.target.style.display = 'none')}
+
                                                 />
                                                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                                     <button className="text-white text-xl">▶</button>
@@ -109,26 +107,24 @@ const Home = () => {
                                             </div>
                                         )}
 
-                                        {/* Thumbnail 2 */}
+                                        
                                         <div className="rounded overflow-hidden relative group">
                                             <img
                                                 src="/banner3.jpg"
                                                 alt="Trailer 2"
                                                 className="w-28 h-20 object-cover"
-                                                onError={(e) => (e.target.style.display = 'none')}
                                             />
                                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                                 <button className="text-white text-xl">▶</button>
                                             </div>
                                         </div>
 
-                                        {/* Thumbnail 3 */}
+                                    
                                         <div className="rounded overflow-hidden relative group">
                                             <img
                                                 src="/banner-04.jpg"
                                                 alt="Trailer 3"
                                                 className="w-28 h-20 object-cover"
-                                                onError={(e) => (e.target.style.display = 'none')}
                                             />
                                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                                 <button className="text-white text-xl">▶</button>

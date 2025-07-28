@@ -43,7 +43,7 @@ const Login = () => {
 
     return (
         <div className="bg-white text-gray-800">
-            {/* Hero Section */}
+       
             <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
                 <p>Home <i className="ri-arrow-drop-right-line"></i> Login</p>
                 <BlurText
@@ -57,7 +57,7 @@ const Login = () => {
                 <div className="absolute inset-0 bg-black/50 z-10"></div>
             </div>
 
-            {/* Login Section */}
+       
             <section className="container mx-auto px-6 py-20 text-center">
                 <div className="space-y-8">
                     <div>
@@ -69,7 +69,6 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* Login Form */}
                 <div className="my-24">
                     <form className="grid grid-cols-1 md:grid-cols-1 gap-6" onSubmit={handleSubmit}>
                         <input
