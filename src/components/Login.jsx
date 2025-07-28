@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import BlurText from './BlurText'
 import Footer from './Footer'
 import { toast } from 'react-toastify';
@@ -43,7 +43,7 @@ const Login = () => {
 
     return (
         <div className="bg-white text-gray-800">
-       
+
             <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
                 <p>Home <i className="ri-arrow-drop-right-line"></i> Login</p>
                 <BlurText
@@ -57,7 +57,7 @@ const Login = () => {
                 <div className="absolute inset-0 bg-black/50 z-10"></div>
             </div>
 
-       
+
             <section className="container mx-auto px-6 py-20 text-center">
                 <div className="space-y-8">
                     <div>
@@ -69,34 +69,36 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className="my-24">
-                    <form className="grid grid-cols-1 md:grid-cols-1 gap-6" onSubmit={handleSubmit}>
+                <div className="my-24 flex justify-center">
+                    <form
+                        className="w-full md:w-6/12 grid grid-cols-1 gap-6"
+                        onSubmit={handleSubmit}
+                    >
                         <input
                             id="email"
                             type="email"
                             placeholder="Your Email"
-                            className="p-4 rounded-lg bg-gray-100 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                            className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
                             onChange={handleChange}
                             value={input.email}
-
                         />
                         <input
                             id="password"
                             type="password"
                             placeholder="Password"
-                            className="p-4 rounded-lg bg-gray-100 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                            className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
                             onChange={handleChange}
                             value={input.password}
-
                         />
                         <button
                             type="submit"
-                            className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition md:col-span-2"
+                            className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition"
                         >
                             Submit
                         </button>
                     </form>
                 </div>
+
             </section>
             <Footer />
         </div>

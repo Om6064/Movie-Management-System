@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import BlurText from './BlurText'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
@@ -93,17 +93,17 @@ const DashBoard = () => {
                                             </td>
                                             <td className="px-6 py-4 mt-5 flex items-center gap-3">
                                                 <div>
-                                                    <Link to={`/editmovie/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i className="ri-edit-box-line" />
+                                                    <Link to={`/editmovie/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500"><i className="ri-edit-box-line" />
                                                     </Link>
                                                 </div>
                                                 <div>
                                                     <button onClick={() => {
                                                         handleDelete(movie.id)
-                                                    }} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i className="ri-delete-bin-6-line" />
+                                                    }} className="font-medium text-xl text-white-600 dark:text-white-500"><i className="ri-delete-bin-6-line" />
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <Link to={`/moviedetail/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i class="ri-eye-line"></i>
+                                                    <Link to={`/moviedetail/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500"><i class="ri-eye-line"></i>
                                                     </Link>
                                                 </div>
                                             </td>

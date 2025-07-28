@@ -4,9 +4,9 @@ const Footer = () => {
     return (
         <footer className="bg-black text-gray-400 pt-12">
             <div className="container mx-auto px-6 md:px-12">
-              
+
                 <div className="flex flex-col md:flex-row justify-between border-b border-gray-700 pb-10">
-                   
+
                     <div className="mb-10 md:mb-0 md:w-1/3">
                         <div className="my-10">
                             <Link to={"/"}><img src="/logo-white.png" alt="Logo" className="h-10" /></Link>
@@ -20,9 +20,9 @@ const Footer = () => {
                         </button>
                     </div>
 
-                   
+
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm md:w-2/3">
-                        
+
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Movies
@@ -36,7 +36,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                       
+
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Links
@@ -50,7 +50,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        
+
                         <div>
                             <h4 className="text-white font-semibold mb-4 border-b-2 border-orange-600 w-fit pb-1">
                                 Newsletter
@@ -72,16 +72,25 @@ const Footer = () => {
                     </div>
                 </div>
 
-                
+
                 <div className="flex flex-col md:flex-row justify-between items-center py-6 border-t border-gray-700 mt-10">
                     <p className="text-sm text-gray-500">© Copyright 2023 by Ovatheme.com</p>
                     <div className="flex space-x-4 mt-4 md:mt-0">
-                        <a href="#" className="bg-gray-800 text-white p-4 rounded-full hover:bg-orange-600"><i class="ri-twitter-x-fill"></i></a>
-                        <a href="#" className="bg-gray-800 text-white p-4 rounded-full hover:bg-orange-600"><i class="ri-facebook-circle-fill"></i></a>
-                        <a href="#" className="bg-gray-800 text-white p-4 rounded-full hover:bg-orange-600"><i class="ri-pinterest-fill"></i></a>
-                        <a href="#" className="bg-gray-800 text-white p-4 rounded-full hover:bg-orange-600"><i class="ri-instagram-fill"></i></a>
+                        <a href="#" className="bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-600">
+                            <i className="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="#" className="bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-600">
+                            <i className="ri-facebook-circle-fill"></i>
+                        </a>
+                        <a href="#" className="bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-600">
+                            <i className="ri-pinterest-fill"></i>
+                        </a>
+                        <a href="#" className="bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-600">
+                            <i className="ri-instagram-fill"></i>
+                        </a>
                     </div>
                 </div>
+
             </div>
         </footer>
     );
