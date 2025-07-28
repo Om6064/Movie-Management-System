@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from './Footer';
@@ -19,7 +19,7 @@ const MovieDetails = () => {
 
   return (
     <div className="bg-white text-gray-800">
-     
+
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
         <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dashboard <i className="ri-arrow-drop-right-line"></i> Movie Detail</p>
         <BlurText
@@ -33,7 +33,7 @@ const MovieDetails = () => {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
-     
+
       <section className="container mx-auto px-6 py-20 text-center">
         <div className="space-y-8">
           <div>
@@ -45,7 +45,7 @@ const MovieDetails = () => {
           </div>
         </div>
 
-      
+
         {
           movie &&
           <div className="my-20 bg-gray-100 shadow-lg rounded-lg p-10 text-left max-w-4xl mx-auto">
@@ -53,7 +53,9 @@ const MovieDetails = () => {
               <img src={movie.img_url} alt={movie.title} className="w-full md:w-1/3 rounded-lg shadow" />
               <div className="flex-1 space-y-4">
                 <h3 className="text-3xl font-bold text-orange-600">{movie.title}</h3>
-                <p className="text-lg"><span className="font-semibold text-gray-700">Genre:</span> {movie.genre}</p>
+                <p className="text-lg">
+                  <span className="font-semibold text-gray-700">Genre:</span> {movie.genre}
+                </p>
                 <div>
                   <p className="font-semibold text-gray-700 mb-2">Description:</p>
                   <div
@@ -63,8 +65,19 @@ const MovieDetails = () => {
                 </div>
               </div>
             </div>
+
+            {/* Back Button at Bottom */}
+            <div className="mt-10 text-center">
+              <Link
+                to="/dashboard"
+                className="inline-block bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition"
+              >
+                Back To Dashboard
+              </Link>
+            </div>
           </div>
         }
+
       </section>
 
       <Footer />

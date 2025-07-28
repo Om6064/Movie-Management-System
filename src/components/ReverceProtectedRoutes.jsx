@@ -2,27 +2,31 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const ReverceProtectedRoutes = ({Component}) => {
-    const [isLogin, setIsLogin] = useState(null);
-    const navigate = useNavigate();
+const ReverceProtectedRoutes = ({ Component }) => {
+  const [isLogin, setIsLogin] = useState(null);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const loginStatus = async () => {
-            const res = await axios.get("http://localhost:5000/islogin");
-            const status = res.data[0].status;
-            setIsLogin(status);
+  useEffect(() => {
+    const loginStatus = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/islogin");
+        const status = res.data[0].status;
+        setIsLogin(status);
 
-            if (status) {
-                navigate("/dashboard");
-            }
-        };
+        if (status) {
+          navigate("/dashboard");
+        }
+      } catch (err) {
+        console.error("Error checking reverse login status:", err);
+      }
+    };
 
-        loginStatus();
-    }, []);
+    loginStatus();
+  }, []);
 
-    if (isLogin === null) return null;
+  if (isLogin === null) return null;
 
-    return <Component />;
-}
+  return <Component />;
+};
 
-export default ReverceProtectedRoutes
+export default ReverceProtectedRoutes;

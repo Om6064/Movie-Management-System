@@ -20,8 +20,12 @@ const EditMovie = () => {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    const res = await axios.get(`http://localhost:5000/movies/${id}`);
-    setInput(res.data)
+    try {
+      const res = await axios.get(`http://localhost:5000/movies/${id}`);
+      setInput(res.data);
+    } catch (error) {
+      console.error("Failed to fetch movie data:", error);
+    }
   };
 
   useEffect(() => {
@@ -44,14 +48,18 @@ const EditMovie = () => {
     setError(tempErrors);
 
     if (Object.keys(tempErrors).length === 0) {
-      await axios.put(`http://localhost:5000/movies/${id}`, input);
-      navigate("/dashboard");
+      try {
+        await axios.put(`http://localhost:5000/movies/${id}`, input);
+        navigate("/dashboard");
+      } catch (error) {
+        console.error("Failed to update movie:", error);
+      }
     }
   };
 
   return (
     <div className="bg-white text-gray-800">
-      {/* Header */}
+
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
         <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dahboard <i className="ri-arrow-drop-right-line"></i> Edit Movie</p>
         <BlurText
@@ -65,7 +73,7 @@ const EditMovie = () => {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
-      {/* Form Section */}
+
       <section className="container mx-auto px-6 py-20 text-center">
         <div className="space-y-8">
           <div>
@@ -80,7 +88,7 @@ const EditMovie = () => {
         <div className="my-24">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
-            {/* Title and Image URL */}
+
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <input
@@ -107,20 +115,29 @@ const EditMovie = () => {
               </div>
             </div>
 
-            {/* Genre */}
+
             <div className="flex flex-col">
-              <input
-                type="text"
+              <select
                 id="genre"
-                placeholder="e.g., Comedy, Action"
-                className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                onChange={handleChange}
                 value={input.genre}
-              />
+                onChange={handleChange}
+                className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              >
+                <option value="">Select Genre</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Romance">Romance</option>
+                <option value="Animation">Animation</option>
+                <option value="Documentary">Documentary</option>
+              </select>
               <p className="text-sm h-5 text-red-500">{error.genre}</p>
             </div>
 
-            {/* Description using Toast UI Editor */}
+
             <div className="flex flex-col text-left">
               <MyEditor
                 value={input.description}
@@ -131,7 +148,7 @@ const EditMovie = () => {
               <p className="text-sm h-5 text-red-500">{error.description}</p>
             </div>
 
-            {/* Submit Button */}
+
             <button
               type="submit"
               className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"

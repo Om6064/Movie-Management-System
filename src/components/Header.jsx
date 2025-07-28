@@ -8,14 +8,22 @@ const Header = () => {
     const navigate = useNavigate()
 
     const loginStatus = async () => {
-        const res = await axios.get("http://localhost:5000/islogin");
-        setIsLogin(res.data[0].status);
+        try {
+            const res = await axios.get("http://localhost:5000/islogin");
+            setIsLogin(res.data[0].status);
+        } catch (err) {
+            console.error("Error fetching login status:", err);
+        }
     };
 
     const handleLogout = async () => {
-        await axios.put("http://localhost:5000/islogin/1", { status: false });
-        setIsLogin(false);
-        navigate("/login")
+        try {
+            await axios.put("http://localhost:5000/islogin/1", { status: false });
+            setIsLogin(false);
+            navigate("/login");
+        } catch (err) {
+            console.error("Error during logout:", err);
+        }
     };
 
 

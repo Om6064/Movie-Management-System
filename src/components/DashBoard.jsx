@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import BlurText from './BlurText'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
@@ -9,21 +9,29 @@ const DashBoard = () => {
 
     let url = "http://localhost:5000/movies"
     const fetchData = async () => {
-        let res = await axios.get(url)
-        setMovie(res.data)
-    }
+        try {
+            let res = await axios.get(url);
+            setMovie(res.data);
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
+    };
 
     useEffect(() => {
         fetchData()
     }, [])
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:5000/movies/${id}`)
-        fetchData()
-    }
+        try {
+            await axios.delete(`http://localhost:5000/movies/${id}`);
+            fetchData();
+        } catch (error) {
+            console.error(`Error deleting movie with ID ${id}:`, error);
+        }
+    };
     return (
         <div className="bg-white text-gray-800">
-         
+
             <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
                 <p>Home <i class="ri-arrow-drop-right-line"></i> Dashboard</p>
                 <BlurText
@@ -37,9 +45,9 @@ const DashBoard = () => {
                 <div className="absolute inset-0 bg-black/50 z-10"></div>
             </div>
 
-          
+
             <section className="container mx-auto px-6 py-20 text-center">
-               
+
                 <div className="space-y-8">
                     <div>
                         <p className="text-2xl text-orange-500"><i class="ri-movie-2-line"></i></p>

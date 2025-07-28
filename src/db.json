@@ -11,7 +11,7 @@
       "id": "903b",
       "title": "erterertter",
       "img_url": "https://thumbs.dreamstime.com/b/innovative-medical-device-featuring-eye-image-illustrating-advanced-tracking-technology-generated-ai-358374352.jpg",
-      "genre": "erterter",
+      "genre": "Action",
       "description": "<p>frgdgdtgd</p>"
     }
   ],
@@ -24,7 +24,7 @@
   ],
   "islogin": [
     {
-      "status": false,
+      "status": true,
       "id": "1"
     }
   ]

@@ -15,20 +15,30 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await axios.get("http://localhost:5000/users");
-        const users = res.data;
+        try {
+            const res = await axios.get("http://localhost:5000/users");
+            const users = res.data;
 
-        const matchedUser = users.find(
-            (u) => u.email === input.email && u.password === input.password
-        );
+            const matchedUser = users.find(
+                (u) => u.email === input.email && u.password === input.password
+            );
 
-        if (matchedUser) {
-            await axios.put("http://localhost:5000/islogin/1", { status: true });
-            toast.success('Login Successful!');
-            setInput({ email: '', password: '' });
-            navigate("/dashboard")
-        } else {
-            toast.error("Invalid Credentials");
+            if (matchedUser) {
+                try {
+                    await axios.put("http://localhost:5000/islogin/1", { status: true });
+                    toast.success('Login Successful!');
+                    setInput({ email: '', password: '' });
+                    navigate("/dashboard");
+                } catch (err) {
+                    console.error("Error setting login status:", err);
+                    toast.error("Failed to update login status");
+                }
+            } else {
+                toast.error("Invalid Credentials");
+            }
+        } catch (err) {
+            console.error("Error fetching users:", err);
+            toast.error("Login failed. Try again later.");
         }
     };
 

@@ -46,16 +46,21 @@ const Form = () => {
     setError(tempErrors);
 
     if (Object.keys(tempErrors).length === 0) {
-      await axios.post(url, input);
-      setInput({ title: "", img_url: "", genre: "", description: "" });
-      fetchData();
-      navigate("/dashboard");
+      try {
+        await axios.post(url, input);
+        setInput({ title: "", img_url: "", genre: "", description: "" });
+        fetchData();
+        navigate("/dashboard");
+      } catch (err) {
+        console.error("Error submitting form:", err);
+      }
     }
   };
 
+
   return (
     <div className="bg-white text-gray-800">
-     
+
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
         <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dahboard <i className="ri-arrow-drop-right-line"></i> Add Movie</p>
         <BlurText
@@ -69,7 +74,7 @@ const Form = () => {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
-    
+
       <section className="container mx-auto px-6 py-20 text-center">
         <div className="space-y-8">
           <div>
@@ -84,7 +89,7 @@ const Form = () => {
         <div className="my-24">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
-        
+
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <input
@@ -132,7 +137,7 @@ const Form = () => {
               <p className="text-sm h-5 text-red-500">{error.genre}</p>
             </div>
 
-         
+
             <div className="flex flex-col text-left">
               <MyEditor
                 value={input.description}
@@ -143,7 +148,7 @@ const Form = () => {
               <p className="text-sm h-5 text-red-500">{error.description}</p>
             </div>
 
-     
+
             <button
               type="submit"
               className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"
