@@ -17,8 +17,8 @@ const DashBoard = () => {
         fetchData()
     }, [])
 
-    const handleDelete = async(id) => {
-       await axios.delete(`http://localhost:5000/movies/${id}`)
+    const handleDelete = async (id) => {
+        await axios.delete(`http://localhost:5000/movies/${id}`)
         fetchData()
     }
     return (
@@ -71,32 +71,42 @@ const DashBoard = () => {
                                     <th scope="col" className="px-6 py-3">
                                         Action
                                     </th>
-                            
-                                    
+
+
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    movie.map((movie,index) => {
+                                    movie.map((movie, index) => {
                                         return <tr className={`${index % 2 === 0
-                                                ? 'bg-orange-500 text-white'
-                                                : 'bg-black text-white'
+                                            ? 'bg-orange-500 text-white'
+                                            : 'bg-white text-black'
                                             } border-b border-gray-200 hover:opacity-90`}>
                                             <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
                                                 {movie.title}
                                             </th>
                                             <td className="px-6 py-4">
-                                                {movie.img_url}
+                                                <img src={movie.img_url} alt="movie_poster" className='h-16 w-16' />
                                             </td>
                                             <td className="px-6 py-4">
                                                 {movie.genre}
                                             </td>
-                                            <td className="px-6 py-4 flex gap-3">
-                                                <Link to={"/editmovie"} className="font-medium text-white-600 dark:text-white-500 hover:underline">Edit</Link>
-                                                <button onClick={() => {
-                                                    handleDelete(movie.id)
-                                                }} className="font-medium text-white-600 dark:text-white-500 hover:underline">Delete</button>
-                                            </td> 
+                                            <td className="px-6 py-4 mt-5 flex items-center gap-3">
+                                                <div>
+                                                    <Link to={`/editmovie/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i className="ri-edit-box-line" />
+                                                    </Link>
+                                                </div>
+                                                <div>
+                                                    <button onClick={() => {
+                                                        handleDelete(movie.id)
+                                                    }} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i className="ri-delete-bin-6-line" />
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <Link to={`/moviedetail/${movie.id}`} className="font-medium text-xl text-white-600 dark:text-white-500 hover:underline"><i class="ri-eye-line"></i>
+                                                    </Link>
+                                                </div>
+                                            </td>
                                         </tr>
                                     })
                                 }

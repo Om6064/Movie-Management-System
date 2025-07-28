@@ -8,6 +8,7 @@ import Login from "./components/Login"
 import { ToastContainer } from "react-toastify"
 import DashBoard from "./components/DashBoard"
 import EditMovie from "./components/EditMovie"
+import MovieDetails from "./components/MovieDetails"
 
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
                 <Route path="/contect" element={<Contact />} />
                 <Route path="/dashboard" element={<DashBoard />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/editmovie" element={<EditMovie />} />
+                <Route path="/editmovie/:id" element={<EditMovie />} />
+                <Route path="/moviedetail/:id" element={<MovieDetails />} />
             </Routes>
             <ToastContainer/>
         </BrowserRouter>

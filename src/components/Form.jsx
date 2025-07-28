@@ -57,7 +57,7 @@ const Form = () => {
     <div className="bg-white text-gray-800">
       {/* Header */}
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
-        <p>Home <i className="ri-arrow-drop-right-line"></i> Add Movie</p>
+        <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dahboard <i className="ri-arrow-drop-right-line"></i> Add Movie</p>
         <BlurText
           text="Add Movie"
           delay={200}

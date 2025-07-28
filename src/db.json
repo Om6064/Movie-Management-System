@@ -1,46 +1,25 @@
 {
   "movies": [
     {
-      "id": "92f1",
-      "title": "dghfj",
-      "img_url": "http://localhost:5173/",
-      "genre": "asa",
-      "description": "fghryhkjhk,lhjkhj"
+      "id": "f9a2",
+      "title": "saiyara",
+      "img_url": "https://thumbs.dreamstime.com/b/innovative-medical-device-featuring-eye-image-illustrating-advanced-tracking-technology-generated-ai-358374352.jpg",
+      "genre": "Romance",
+      "description": "# ***sdddfgdjjhfjrhgjfoiweoifjswripipj![logo](data:image/png;base64,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)cfvdfnldnbnngk***\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n"
     },
     {
-      "id": "b369",
-      "title": "aryan",
-      "img_url": "http://localhost:5173/",
-      "genre": "frwrgtdfhf",
-      "description": "dgfjhmhj,h"
-    },
-    {
-      "id": "4e5b",
-      "title": "erttert",
-      "img_url": "http://localhost:5173/",
-      "genre": "fgdfg",
-      "description": "fhdgjfghjgh"
-    },
-    {
-      "id": "aede",
-      "title": "dgdfgdfg",
-      "img_url": "http://localhost:5173/",
-      "genre": "fgdfgfh",
-      "description": "dgfgjhfj"
-    },
-    {
-      "id": "8266",
-      "title": "frsdfdfdfd",
-      "img_url": "http://localhost:5173/",
-      "genre": "dsfsdf",
-      "description": "dgdfghdfg"
+      "id": "63c7",
+      "title": "sfsdgsdfg",
+      "img_url": "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
+      "genre": "sdghfy",
+      "description": "fhfgghmgjhmg"
     }
   ],
   "users": [
     {
-      "id": "1",
       "email": "admin@gmail.com",
-      "password": "admin@123"
+      "password": "admin@123",
+      "id": "d6ed"
     }
   ],
   "islogin": [

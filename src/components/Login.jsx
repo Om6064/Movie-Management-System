@@ -1,35 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import  { useState } from 'react'
 import BlurText from './BlurText'
 import Footer from './Footer'
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [input, setInput] = useState({
         email: "",
         password: ""
     });
-    
-    const handleSubmit = async(e) => {
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        if (input.email == "admin@gmail.com" && input.password == "admin@123") {
-            await axios.put(`http://localhost:5000/islogin`, true);
+
+        const res = await axios.get("http://localhost:5000/users");
+        const users = res.data;
+
+        const matchedUser = users.find(
+            (u) => u.email === input.email && u.password === input.password
+        );
+
+        if (matchedUser) {
+            await axios.put("http://localhost:5000/islogin/1", { status: true });
             toast.success('Login Successful!');
             setInput({ email: '', password: '' });
-        }else{
-            await axios.put(`http://localhost:5000/islogin`, false);
-            toast.error("Invalid Credancials")
-            return;
+            navigate("/dashboard")
+        } else {
+            toast.error("Invalid Credentials");
         }
-
-
     };
+
+
+
 
     const handleChange = (e) => {
         setInput({ ...input, [e.target.id]: e.target.value });
     };
     console.log(input);
-    
+
 
     return (
         <div className="bg-white text-gray-800">
@@ -69,7 +79,7 @@ const Login = () => {
                             className="p-4 rounded-lg bg-gray-100 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
                             onChange={handleChange}
                             value={input.email}
-                            
+
                         />
                         <input
                             id="password"
@@ -78,7 +88,7 @@ const Login = () => {
                             className="p-4 rounded-lg bg-gray-100 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
                             onChange={handleChange}
                             value={input.password}
-                            
+
                         />
                         <button
                             type="submit"

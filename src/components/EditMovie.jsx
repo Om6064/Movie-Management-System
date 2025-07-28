@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import BlurText from "./BlurText";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
-import MyEditor from "./MyEditor"; // import your Toast UI Editor wrapper
+import { useNavigate, useParams } from "react-router-dom";
+import MyEditor from "./MyEditor";
 
 const EditMovie = () => {
   const [input, setInput] = useState({
@@ -14,16 +14,14 @@ const EditMovie = () => {
   });
 
   const [error, setError] = useState({});
+  const { id } = useParams()
+  console.log(id);
+
   const navigate = useNavigate();
-  const url = "http://localhost:5000/movies";
 
   const fetchData = async () => {
-    try {
-      const res = await axios.get(url);
-      console.log(res);
-    } catch (err) {
-      console.error("Error fetching data:", err);
-    }
+    const res = await axios.get(`http://localhost:5000/movies/${id}`);
+    setInput(res.data)
   };
 
   useEffect(() => {
@@ -46,10 +44,8 @@ const EditMovie = () => {
     setError(tempErrors);
 
     if (Object.keys(tempErrors).length === 0) {
-        await axios.post(url, input);
-        setInput({ title: "", img_url: "", genre: "", description: "" });
-        fetchData();
-        navigate("/dashboard");
+      await axios.put(`http://localhost:5000/movies/${id}`, input);
+      navigate("/dashboard");
     }
   };
 
@@ -57,7 +53,7 @@ const EditMovie = () => {
     <div className="bg-white text-gray-800">
       {/* Header */}
       <div className="bg-[url('/background-header-2.jpg')] relative bg-cover bg-center min-h-[500px] py-20 text-center text-white flex flex-col justify-center items-center">
-        <p>Home <i className="ri-arrow-drop-right-line"></i> Edit Movie</p>
+        <p className="mb-2">Home <i className="ri-arrow-drop-right-line"></i> Dahboard <i className="ri-arrow-drop-right-line"></i> Edit Movie</p>
         <BlurText
           text="Edit Movie"
           delay={200}
@@ -141,7 +137,7 @@ const EditMovie = () => {
               type="submit"
               className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"
             >
-              + Add Movie
+              <i class="ri-edit-box-line"></i> Update Movie
             </button>
           </form>
         </div>
