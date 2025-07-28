@@ -60,7 +60,7 @@ const DashBoard = () => {
 
                 <div>
                     <div className='my-20 text-right'>
-                        <Link to={"/Form"} className="bg-orange-500 hover:bg-orange-600 px-4 rounded py-2"> + Add Movies</Link>
+                        <Link to={"/Form"} className="bg-orange-500 hover:bg-orange-600 px-4 rounded py-2 text-white"> + Add Movies</Link>
                     </div>
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-20">
