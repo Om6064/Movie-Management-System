@@ -86,77 +86,89 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="my-24">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div className="my-24 grid grid-cols-1 md:grid-cols-6 gap-8">
+          <div className="md:col-span-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1 flex flex-col">
+                  <input
+                    type="text"
+                    id="title"
+                    placeholder="Title"
+                    className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    onChange={handleChange}
+                    value={input.title}
+                  />
+                  <p className="text-sm h-5 text-red-500">{error.title}</p>
+                </div>
 
-
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 flex flex-col">
-                <input
-                  type="text"
-                  id="title"
-                  placeholder="Title"
-                  className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  onChange={handleChange}
-                  value={input.title}
-                />
-                <p className="text-sm h-5 text-red-500">{error.title}</p>
+                <div className="flex-1 flex flex-col">
+                  <input
+                    type="url"
+                    id="img_url"
+                    placeholder="Image URL"
+                    className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    onChange={handleChange}
+                    value={input.img_url}
+                  />
+                  <p className="text-sm h-5 text-red-500">{error.img_url}</p>
+                </div>
               </div>
 
-              <div className="flex-1 flex flex-col">
-                <input
-                  type="url"
-                  id="img_url"
-                  placeholder="Image URL"
-                  className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              <div className="flex flex-col">
+                <select
+                  id="genre"
+                  value={input.genre}
                   onChange={handleChange}
-                  value={input.img_url}
-                />
-                <p className="text-sm h-5 text-red-500">{error.img_url}</p>
+                  className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                >
+                  <option value="">Select Genre</option>
+                  <option value="Action">Action</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Animation">Animation</option>
+                  <option value="Documentary">Documentary</option>
+                </select>
+                <p className="text-sm h-5 text-red-500">{error.genre}</p>
               </div>
-            </div>
 
-            <div className="flex flex-col">
-              <select
-                id="genre"
-                value={input.genre}
-                onChange={handleChange}
-                className="p-4 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              <div className="flex flex-col text-left">
+                <MyEditor
+                  value={input.description}
+                  onChange={(markdown) =>
+                    setInput((prev) => ({ ...prev, description: markdown }))
+                  }
+                />
+                <p className="text-sm h-5 text-red-500">{error.description}</p>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"
               >
-                <option value="">Select Genre</option>
-                <option value="Action">Action</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Drama">Drama</option>
-                <option value="Thriller">Thriller</option>
-                <option value="Horror">Horror</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Romance">Romance</option>
-                <option value="Animation">Animation</option>
-                <option value="Documentary">Documentary</option>
-              </select>
-              <p className="text-sm h-5 text-red-500">{error.genre}</p>
-            </div>
-
-
-            <div className="flex flex-col text-left">
-              <MyEditor
-                value={input.description}
-                onChange={(markdown) =>
-                  setInput((prev) => ({ ...prev, description: markdown }))
-                }
+                + Add Movie
+              </button>
+            </form>
+          </div>
+          <div className="md:col-span-2 flex justify-center items-start">
+            {input.img_url ? (
+              <img
+                src={input.img_url}
+                alt="Preview"
+                className="w-full h-auto max-h-[400px] rounded-lg object-cover shadow-md"
               />
-              <p className="text-sm h-5 text-red-500">{error.description}</p>
-            </div>
-
-
-            <button
-              type="submit"
-              className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition self-start md:self-center"
-            >
-              + Add Movie
-            </button>
-          </form>
+            ) : (
+              <div className="w-full h-[300px] flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg text-gray-400">
+                Image preview
+              </div>
+            )}
+          </div>
         </div>
+
       </section>
 
       <Footer />
