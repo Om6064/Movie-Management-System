@@ -4,6 +4,7 @@ import BlurText from "./BlurText";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import MyEditor from "./MyEditor";
+import { toast } from "react-toastify";
 
 const Form = () => {
   const [input, setInput] = useState({
@@ -51,6 +52,7 @@ const Form = () => {
         setInput({ title: "", img_url: "", genre: "", description: "" });
         fetchData();
         navigate("/dashboard");
+        toast.success("Movie Added Successfully")
       } catch (err) {
         console.error("Error submitting form:", err);
       }

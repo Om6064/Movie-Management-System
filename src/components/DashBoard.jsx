@@ -3,6 +3,7 @@ import BlurText from './BlurText'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const DashBoard = () => {
     const [movie, setMovie] = useState([])
@@ -25,6 +26,7 @@ const DashBoard = () => {
         try {
             await axios.delete(`http://localhost:5000/movies/${id}`);
             fetchData();
+            toast.error("Movie Deleted")
         } catch (error) {
             console.error(`Error deleting movie with ID ${id}:`, error);
         }

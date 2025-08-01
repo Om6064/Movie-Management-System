@@ -4,6 +4,7 @@ import BlurText from "./BlurText";
 import Footer from "./Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import MyEditor from "./MyEditor";
+import { toast } from "react-toastify";
 
 const EditMovie = () => {
   const [input, setInput] = useState({
@@ -51,6 +52,7 @@ const EditMovie = () => {
       try {
         await axios.put(`http://localhost:5000/movies/${id}`, input);
         navigate("/dashboard");
+        toast.success("Movie Updated Successfully")
       } catch (error) {
         console.error("Failed to update movie:", error);
       }
