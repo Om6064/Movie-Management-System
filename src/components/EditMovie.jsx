@@ -80,10 +80,10 @@ const EditMovie = () => {
         <div className="space-y-8">
           <div>
             <p className="text-2xl text-orange-500"><i className="ri-movie-2-line"></i></p>
-            <p className="text-gray-600 font-semibold">Add Movie</p>
+            <p className="text-gray-600 font-semibold">Update Movie</p>
           </div>
           <div className="space-y-4">
-            <h2 className="font-bold text-5xl">Admin Can Add Movie From <br /> Here</h2>
+            <h2 className="font-bold text-5xl">Admin Can Update Movie From <br /> Here</h2>
           </div>
         </div>
 
