@@ -27,9 +27,10 @@ const Header = () => {
         }
     };
 
+    
     useEffect(() => {
         loginStatus();
-    }, []);
+    }, [pathname]);
 
     const linkClass = (path) =>
         `${pathname === path ? "text-orange-500" : "text-white"} hover:text-orange-500`;
@@ -38,19 +39,19 @@ const Header = () => {
         <div className="absolute w-full z-50 py-4 bg-black/70">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
-                    {/* Logo */}
+                 
                     <Link to={"/"}>
                         <img src="/logo-white.png" alt="Logo" className="h-10" />
                     </Link>
 
-                    {/* Mobile Menu Icon */}
+               
                     <div className="md:hidden text-white text-2xl">
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <i className={`ri-${isMenuOpen ? "close-line" : "menu-line"}`}></i>
                         </button>
                     </div>
 
-                    {/* Desktop Nav */}
+               
                     <ul className="hidden md:flex gap-8 text-white items-center font-medium">
                         <Link to="/" className={linkClass("/")}>Home</Link>
                         <Link to="/contect" className={linkClass("/contect")}>Contect</Link>
@@ -85,7 +86,6 @@ const Header = () => {
                         )}
                     </ul>
                 </div>
-
 
                 {isMenuOpen && (
                     <ul className="md:hidden mt-4 space-y-4 text-white font-medium text-center">
